@@ -28,13 +28,14 @@ public class WineController {
     }
 
     @RequestMapping("/all")
-    public String getWineList(){
-        List all = wineDao.getAll();
-        StringBuilder sb = new StringBuilder();
-        for(Object obj : all){
-            sb.append(obj.toString());
-        }
-        return sb.toString();
+    public List getWineList(){
+//        List all = wineDao.getAll();
+//        StringBuilder sb = new StringBuilder();
+//        for(Object obj : all){
+//            sb.append(obj.toString());
+//        }
+//        return sb.toString();
+        return wineDao.getAll();
     }
 
 

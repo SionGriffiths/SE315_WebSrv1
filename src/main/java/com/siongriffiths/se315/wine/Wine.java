@@ -6,12 +6,16 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="wines")
+@Table(name="wines", uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
 public class Wine {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @NotNull
+    @Size(min = 2, max = 250)
+    private String name;
 
     @NotNull
     @Size(min = 2, max = 250)
@@ -43,6 +47,10 @@ public class Wine {
 
     public Wine(long id) {
         this.id = id;
+    }
+
+    public Wine(String name) {
+        this.name = name;
     }
 
     public Wine(String shortDescription, String longDescription, String countryOfOrigin,
@@ -118,5 +126,13 @@ public class Wine {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

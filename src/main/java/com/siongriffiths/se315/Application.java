@@ -15,18 +15,6 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-
-    @Bean
-    public OrderService orderService(){
-        return new OrderService();
-    }
-
-    @Bean
-    public WineService WineService(){
-        return new WineService();
-    }
-
-
 }
 
 
