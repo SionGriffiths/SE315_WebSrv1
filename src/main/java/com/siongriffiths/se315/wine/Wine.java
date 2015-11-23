@@ -1,6 +1,7 @@
 package com.siongriffiths.se315.wine;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
