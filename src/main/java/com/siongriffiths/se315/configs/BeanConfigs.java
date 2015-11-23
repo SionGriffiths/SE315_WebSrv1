@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class BeanConfigs {
-    
+
     @Bean
     public OrderService orderService(){
         return new OrderService();
