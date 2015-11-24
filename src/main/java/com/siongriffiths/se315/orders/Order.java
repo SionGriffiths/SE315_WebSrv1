@@ -1,10 +1,9 @@
 package com.siongriffiths.se315.orders;
 
+import com.siongriffiths.se315.customer.Customer;
 import com.siongriffiths.se315.wine.Wine;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -19,11 +18,33 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotNull
-    @Size(min = 2, max = 50)
-    private String customerID;
+    @ManyToOne
+    private Customer customer;
 
     @ElementCollection
     private List<Wine> orderDetails;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<Wine> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<Wine> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
 }
