@@ -15,39 +15,48 @@ public class Wine {
 
     @NotNull
     @Size(min = 2, max = 250)
+    @Column(name="name")
     private String name;
 
     @NotNull
     @Size(min = 2, max = 250)
+    @Column(name="short_description")
     private String shortDescription;
 
     @NotNull
     @Size(min = 2, max = 1500)
+    @Column(name="long_description")
     private String longDescription;
 
     @NotNull
     @Size(min = 2, max = 50)
+    @Column(name="country_of_origin")
     private String countryOfOrigin;
 
     @NotNull
     @Size(min = 2, max = 50)
+    @Column(name="grape_type")
     private String grapeType;
 
     @NotNull
     @Size(min = 2, max = 50)
+    @Column(name="bottle_size")
     private String bottleSize;
 
     @NotNull
+    @Column(name="vegetarian")
     private boolean vegetarian;
 
     @NotNull
+    @Column(name="price")
     private double price;
 
-    public Wine() { }
+    @NotNull
+    @Size(min = 2, max = 50)
+    @Column(name="product_number")
+    private String productNumber;
 
-    public Wine(long id) {
-        this.id = id;
-    }
+    public Wine() { }
 
     public Wine(String name) {
         this.name = name;
@@ -70,6 +79,14 @@ public class Wine {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getProductNumber() {
+        return productNumber;
+    }
+
+    public void setProductNumber(String productNumber) {
+        this.productNumber = productNumber;
     }
 
     public String getShortDescription() {

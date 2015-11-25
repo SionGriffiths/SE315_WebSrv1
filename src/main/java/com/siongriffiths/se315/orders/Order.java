@@ -5,6 +5,7 @@ import com.siongriffiths.se315.wine.Wine;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sig2 on 23/11/2015.
@@ -16,20 +17,20 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long orderNumber;
 
     @ManyToOne
     private Customer customer;
 
     @ElementCollection
-    private List<Wine> orderDetails;
+    private Map<Wine,Integer> orderDetails;
 
     public long getId() {
-        return id;
+        return orderNumber;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.orderNumber = id;
     }
 
     public Customer getCustomer() {
@@ -40,11 +41,11 @@ public class Order {
         this.customer = customer;
     }
 
-    public List<Wine> getOrderDetails() {
+    public Map<Wine, Integer> getOrderDetails() {
         return orderDetails;
     }
 
-    public void setOrderDetails(List<Wine> orderDetails) {
+    public void setOrderDetails(Map<Wine, Integer> orderDetails) {
         this.orderDetails = orderDetails;
     }
 }

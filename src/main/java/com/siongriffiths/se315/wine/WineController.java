@@ -1,9 +1,9 @@
 package com.siongriffiths.se315.wine;
 
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -18,23 +18,11 @@ public class WineController {
 
     @Autowired WineService wineService;
     @Autowired WineDao wineDao;
-
-//    private static final String template = "Hello, %s!";
-//    private final AtomicLong counter = new AtomicLong();
-
-    @RequestMapping("/test")
-    public String greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        return wineService.wineServiceTest();
-    }
+    public static final Logger LOGGER = Logger.getLogger(WineController.class);
 
     @RequestMapping("/all")
     public List getWineList(){
-//        List all = wineDao.getAll();
-//        StringBuilder sb = new StringBuilder();
-//        for(Object obj : all){
-//            sb.append(obj.toString());
-//        }
-//        return sb.toString();
+        LOGGER.info("\n \n  ****** Get all wines query  ***** \n \n");
         return wineDao.getAll();
     }
 
