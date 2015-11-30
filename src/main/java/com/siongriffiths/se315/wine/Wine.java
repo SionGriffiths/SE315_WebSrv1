@@ -56,6 +56,10 @@ public class Wine {
     @Column(name="product_number")
     private String productNumber;
 
+    @Size(min = 2, max = 250)
+    @Column(name="picture_url")
+    private String pictureURL;
+
     public Wine() { }
 
     public Wine(String name) {
@@ -151,5 +155,13 @@ public class Wine {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPictureURL() {
+        return pictureURL;
+    }
+
+    public void setPictureURL(String pictureURL) {
+        this.pictureURL = pictureURL;
     }
 }
