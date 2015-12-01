@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sig2 on 23/11/2015.
@@ -23,7 +24,7 @@ public class OrderController {
 
     @RequestMapping(value = "/new" , method=RequestMethod.POST)
     public void getWineList(@RequestBody String json){
-        LOGGER.info(json);
+
     }
 
 
