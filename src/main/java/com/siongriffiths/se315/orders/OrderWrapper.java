@@ -46,8 +46,6 @@ public class OrderWrapper {
             sb.append(orderDetail.toString());
         }
         sb.append("\n>>>>>>>>>>>>>>>>>>>>>>>\n");
-
         return sb.toString();
-
     }
 }
