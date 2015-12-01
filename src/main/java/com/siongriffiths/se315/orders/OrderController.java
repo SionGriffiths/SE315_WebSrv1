@@ -2,12 +2,9 @@ package com.siongriffiths.se315.orders;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -23,9 +20,12 @@ public class OrderController {
     @Autowired OrderDao orderDao;
 
     @RequestMapping(value = "/new" , method=RequestMethod.POST)
-    public void getWineList(@RequestBody String json){
-
+    public void getWineList(@RequestBody OrderWrapper orderWrapper, HttpServletRequest request){
+//        logOrder(request.getParameterMap());
+        LOGGER.info(orderWrapper);
     }
+
+    private void logOrder( Map<String, String[]> parameterMap){}
 
 
 }

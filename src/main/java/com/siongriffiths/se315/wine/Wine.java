@@ -1,5 +1,7 @@
 package com.siongriffiths.se315.wine;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
@@ -13,47 +15,47 @@ public class Wine {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotNull
+
     @Size(min = 2, max = 250)
     @Column(name="name")
     private String name;
 
-    @NotNull
+
     @Size(min = 2, max = 250)
     @Column(name="short_description")
+    @JsonProperty("short_description")
     private String shortDescription;
 
-    @NotNull
+
     @Size(min = 2, max = 1500)
     @Column(name="long_description")
     private String longDescription;
 
-    @NotNull
+
     @Size(min = 2, max = 50)
     @Column(name="country_of_origin")
     private String countryOfOrigin;
 
-    @NotNull
+
     @Size(min = 2, max = 50)
     @Column(name="grape_type")
     private String grapeType;
 
-    @NotNull
     @Size(min = 2, max = 50)
     @Column(name="bottle_size")
     private String bottleSize;
 
-    @NotNull
+
     @Column(name="vegetarian")
     private boolean vegetarian;
 
-    @NotNull
     @Column(name="price")
     private double price;
 
-    @NotNull
+
     @Size(min = 2, max = 50)
     @Column(name="product_number")
+    @JsonProperty("product_number")
     private String productNumber;
 
     @Size(min = 2, max = 250)
