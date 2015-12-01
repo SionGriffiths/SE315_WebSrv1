@@ -32,4 +32,22 @@ public class OrderWrapper {
         this.customer = customer;
     }
 
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n>>>>>>>>>>>>>>>>>>>>>>>\n")
+                .append("Order received : \n")
+                .append("Customer name : ").append(customer.getFirst_name()).append(" ").append(customer.getSecond_name()).append("\n")
+                .append("Customer address : ").append(customer.getAddress()).append("\n")
+                .append(">>>>>>>>>>>>>>>>>>>>>>>\n")
+                .append("Order Details :");
+        for(OrderDetail orderDetail : orderDetails){
+            sb.append("\n");
+            sb.append(orderDetail.toString());
+        }
+        sb.append("\n>>>>>>>>>>>>>>>>>>>>>>>\n");
+
+        return sb.toString();
+
+    }
 }
