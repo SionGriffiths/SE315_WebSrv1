@@ -18,11 +18,11 @@ public class Customer {
 
     @NotNull
     @Size(min = 2, max = 250)
-    private String first_name;
+    private String name;
 
     @NotNull
     @Size(min = 2, max = 250)
-    private String second_name;
+    private String email;
 
     @NotNull
     @Size(min = 2, max = 250)
@@ -36,20 +36,20 @@ public class Customer {
         this.id = id;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getName() {
+        return name;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSecond_name() {
-        return second_name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setSecond_name(String second_name) {
-        this.second_name = second_name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAddress() {

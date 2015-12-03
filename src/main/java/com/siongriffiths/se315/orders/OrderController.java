@@ -19,7 +19,7 @@ public class OrderController {
     @Autowired OrderDao orderDao;
 
     @RequestMapping(value = "/new" , method=RequestMethod.POST)
-    public void getWineList(@RequestBody OrderWrapper orderWrapper){
+    public void makeNewOrder(@RequestBody OrderWrapper orderWrapper){
        LOGGER.info(orderWrapper.toString());
     }
 

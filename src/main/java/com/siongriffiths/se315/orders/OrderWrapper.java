@@ -37,7 +37,8 @@ public class OrderWrapper {
         StringBuilder sb = new StringBuilder();
         sb.append("\n>>>>>>>>>>>>>>>>>>>>>>>\n")
                 .append("Order received : \n")
-                .append("Customer name : ").append(customer.getFirst_name()).append(" ").append(customer.getSecond_name()).append("\n")
+                .append("Customer name : ").append(customer.getName()).append("\n")
+                .append("Customer email : ").append(customer.getEmail()).append("\n")
                 .append("Customer address : ").append(customer.getAddress()).append("\n")
                 .append(">>>>>>>>>>>>>>>>>>>>>>>\n")
                 .append("Order Details :");
