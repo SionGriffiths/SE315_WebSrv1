@@ -1,8 +1,6 @@
 package com.siongriffiths.se315.configs;
 
-import com.siongriffiths.se315.orders.OrderService;
-import com.siongriffiths.se315.wine.WineService;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -10,14 +8,5 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class BeanConfigs {
-
-    @Bean
-    public OrderService orderService(){
-        return new OrderService();
-    }
-    @Bean
-    public WineService WineService(){
-        return new WineService();
-    }
 
 }

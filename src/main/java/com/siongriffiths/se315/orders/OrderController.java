@@ -15,7 +15,6 @@ public class OrderController {
 
     public static final Logger LOGGER = Logger.getLogger(OrderController.class);
 
-    @Autowired OrderService orderService;
     @Autowired OrderDao orderDao;
 
     @RequestMapping(value = "/new" , method=RequestMethod.POST)

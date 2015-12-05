@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 @Table(name="wines", uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
@@ -58,9 +59,14 @@ public class Wine {
     @JsonProperty("product_number")
     private String productNumber;
 
-    @Size(min = 2, max = 250)
     @Column(name="picture_url")
     private String pictureURL;
+
+    @Column(name="last_modified")
+    private Date lastModified;
+
+    @Column(name="date_created")
+    private Date dateCreated;
 
     public Wine() { }
 
@@ -165,5 +171,30 @@ public class Wine {
 
     public void setPictureURL(String pictureURL) {
         this.pictureURL = pictureURL;
+    }
+
+    public Date getLastModified() {
+        return lastModified;
+    }
+
+    public void setLastModified(Date lastModified) {
+        this.lastModified = lastModified;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    @PreUpdate
+    @PrePersist
+    public void updateTimeStamps() {
+        lastModified = new Date();
+        if (dateCreated==null) {
+            dateCreated = new Date();
+        }
     }
 }
