@@ -20,7 +20,7 @@ import java.util.List;
 @RequestMapping(value="/wine")
 public class WineController {
 
-    @Autowired WineDao wineDao;
+    @Autowired private WineDao wineDao;
     public static final Logger LOGGER = Logger.getLogger(WineController.class);
 
     @RequestMapping("/all")
