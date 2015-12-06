@@ -20,21 +20,13 @@ import java.util.List;
 @RequestMapping(value="/wine")
 public class WineController {
 
-    @Autowired private WineDao wineDao;
+    @Autowired WineDao wineDao;
     public static final Logger LOGGER = Logger.getLogger(WineController.class);
 
     @RequestMapping("/all")
     public List getWineList(HttpServletRequest request){
-        String modDate = request.getHeader("if-modified-since");
 
-        Date modifiedDate = null;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        try {
-            modifiedDate = sdf.parse(modDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
+        Date modifiedDate = getModifiedDateFromHeader(request);
         LOGGER.info("\n \n  ****** Get wines query  ***** \n");
         List result = wineDao.getAllFromDate(modifiedDate);
         LOGGER.info(" ****** "+ result.size() +" updated results  ***** \n \n");
@@ -83,5 +75,23 @@ public class WineController {
             wineDao.saveWine(wine);
         }
         return "done";
+    }
+
+    private Date getModifiedDateFromHeader(HttpServletRequest request) {
+        String dateString = request.getHeader("if-modified-since");
+        Date modifiedDate = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        try {
+            modifiedDate = sdf.parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        if (modifiedDate == null){
+            modifiedDate = new Date(0);
+        }
+
+        return modifiedDate;
     }
 }
