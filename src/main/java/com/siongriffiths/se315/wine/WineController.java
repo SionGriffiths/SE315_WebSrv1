@@ -50,8 +50,8 @@ public class WineController {
         wine.setCountryOfOrigin("China");
         wine.setGrapeType("Zinfandel");
         wine.setLongDescription("This is a wine that has just been created on the webservice");
-        wine.setName("Test DB update Wine");
-        wine.setPrice(0.99);
+        wine.setName("AATest DB update Wine");
+        wine.setPrice(1.99);
         wine.setProductNumber("1234");
         wine.setShortDescription("test DB wine");
         wine.setVegetarian(true);
