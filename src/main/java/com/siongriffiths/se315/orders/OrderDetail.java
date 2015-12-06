@@ -2,6 +2,9 @@ package com.siongriffiths.se315.orders;
 
 /**
  * Created by sig2 on 01/12/2015.
+ *
+ * Class is used to wrap up a recieved wine order line
+ *
  */
 public class OrderDetail {
 

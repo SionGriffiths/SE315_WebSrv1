@@ -15,6 +15,9 @@ import org.springframework.stereotype.Repository;
 
 /**
  * Created by sig2 on 23/11/2015.
+ *
+ * Database Access Object for Wine table
+ *
  */
 
 @Repository
@@ -28,6 +31,11 @@ public class WineDao {
         return sessionFactory.getCurrentSession();
     }
 
+    /**
+     * Selects all wines with lastmodified dates after the parameter time
+     * @param modifiedDate param from consuming webapp
+     * @return list of wines that have been modified since paramter time
+     */
     @SuppressWarnings("unchecked")
     public List getAllFromDate(Date modifiedDate) {
         String hql = "FROM Wine W WHERE W.lastModified > :modifiedDate";
@@ -38,10 +46,18 @@ public class WineDao {
         return results;
     }
 
+    /**
+     * Selects all wines in the wines table
+     * @return list of all persisted wines
+     */
     public List getAll(){
         return (List<Wine>)getSession().createQuery("from Wine").list();
     }
 
+    /**
+     * Persist a wine
+     * @param wine
+     */
     public void saveWine(Wine wine){
         getSession().saveOrUpdate(wine);
     }

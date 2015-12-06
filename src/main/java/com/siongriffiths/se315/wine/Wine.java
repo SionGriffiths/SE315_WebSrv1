@@ -7,7 +7,11 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
-
+/**
+ * Created by sig2 on 23/11/2015.
+ *
+ * Class is a hibernate persistence map for a Wine object
+ */
 @Entity
 @Table(name="wines", uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
 public class Wine {

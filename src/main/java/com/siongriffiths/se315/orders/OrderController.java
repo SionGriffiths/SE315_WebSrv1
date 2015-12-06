@@ -15,8 +15,10 @@ public class OrderController {
 
     public static final Logger LOGGER = Logger.getLogger(OrderController.class);
 
-    @Autowired OrderDao orderDao;
-
+    /**
+     * # Recieve a POST request containing order data in json format (default)
+     * @param orderWrapper Object used to wrap the expected json object format
+     */
     @RequestMapping(value = "/new" , method=RequestMethod.POST)
     public void makeNewOrder(@RequestBody OrderWrapper orderWrapper){
        LOGGER.info(orderWrapper.toString());

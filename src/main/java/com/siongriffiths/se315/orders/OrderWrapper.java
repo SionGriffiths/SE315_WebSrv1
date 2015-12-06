@@ -7,6 +7,10 @@ import java.util.List;
 
 /**
  * Created by sig2 on 01/12/2015.
+ *
+ * Class wraps up the desired format for a received order
+ * A JSON object must be structured similarily to this class in order to be processed
+ *
  */
 public class OrderWrapper {
 

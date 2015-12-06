@@ -42,7 +42,13 @@ public class WineController {
     }
 
 
-//  This method is just in order to show the update functionality
+//
+
+    /**
+     * FOR DEMO ONLY
+     * This method is just in order to help show the update functionality
+     * @return name of created Wine object
+     */
     @RequestMapping("/create")
     public String makeAWine(){
         Wine wine = new Wine();
@@ -62,7 +68,12 @@ public class WineController {
         return "Created wine " + wine.getName();
     }
 
-//    This method is purely for simulating correctly populated DB entries
+    /**
+     * FOR DEMO ONLY
+     * This method is just in order to update timestamps in the database
+     * to showcase update functionality
+     * @return status indication
+     */
     @RequestMapping("/update")
     public String updateWines(){
 
